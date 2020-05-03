@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quickly.devploment.mapper.StudentMapper">
+    <select id="getAllStudentPojo" resultType="com.quickly.devploment.pojo.StudentPojo">
+       select * from student limit #{pageNum},#{pageSize};
+   </select>
+    <resultMap id="StudentPojo" type="com.quickly.devploment.pojo.StudentPojo">
+        <result column="s_id" property="s_id"/>
+        <result column="sage" property="sage"/>
+        <result column="sname" property="sname"/>
+        <result column="sno" property="sno"/>
+        <result column="ssex" property="ssex"/>
+    </resultMap>
+    <select id="geuAllStudentPojoByStream" fetchSize="-2147483648" resultMap="StudentPojo" resultSetType="FORWARD_ONLY">
+       select * from student limit #{pageNum},#{pageSize};
+   </select>
+</mapper>

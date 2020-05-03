@@ -1,0 +1,9 @@
+server:
+  port: 15000
+spring:
+  datasource:
+    url: jdbc:mysql://120.78.140.235:3306/db_activiti
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: xiaoxingxing
+    type: com.alibaba.druid.pool.DruidDataSource #连接池的类型
