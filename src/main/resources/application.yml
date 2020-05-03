@@ -1,0 +1,26 @@
+server:
+  port: 15000
+spring:
+  datasource:
+    druid:
+      max-active: 5
+      min-idle: 3
+      url: jdbc:mysql://120.78.140.235:3306/db_activiti
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: xiaoxingxing
+
+# 托管的类扫描包路径
+#scanPackage:
+#  com.quickly.devploment.gp.GpDispatcherServlet
+
+# 测试 yml 文件
+app:
+  name: shuaideng
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+#        include: health,info,beans
+        include:  "*"
