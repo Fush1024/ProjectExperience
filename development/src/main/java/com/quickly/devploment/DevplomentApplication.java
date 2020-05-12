@@ -41,6 +41,7 @@ public class DevplomentApplication implements InitializingBean {
 //			userPojoList.add(new UserPojo());
 //		}
 		System.out.println(dataSource);
+		System.out.println("the project will start ...");
 
 	}
 }
