@@ -412,4 +412,11 @@ public class Answer {
 		System.out.println(new ListNode(10).checkPalindrom(node1));
 		System.out.println(new ListNode(10).checkPalindrom(node1));
 	}
+
+	@Test
+	public void testInteger(){
+		Integer integer = Integer.getInteger("nettyrpc.default.thread.nums", 16);
+		System.out.println(integer);
+
+	}
 }

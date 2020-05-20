@@ -63,12 +63,17 @@ public class A implements Cloneable {
 	}
 
 
-
+	/**
+	 *
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		final A a1 = new A();
 		a1.setName("zhangsan");
 		D d = new D1();
 		((D1) d).setName("DDD");
+
 		a1.setD(d);
 //		A a2 = new A();
 //		a2.setName("zhangsan");
