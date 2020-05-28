@@ -1,7 +1,9 @@
 package com.quickly.devploment;
 
 import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.util.concurrent.RateLimiter;
 import com.quickly.devploment.pojo.UserPojo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -10,6 +12,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -49,5 +52,14 @@ public class TestGuava {
 
 	private BigInteger getBigInteger(UserPojo userPojo) {
 		return new BigInteger(userPojo.getUsername());
+	}
+
+	@Test
+	public void testRateLimiter(){
+
+		RateLimiter limiter = RateLimiter.create(5.0, 5, TimeUnit.SECONDS);
+		limiter.setRate(10.0);
+		ImmutableSet.Builder<Object> builder = ImmutableSet.builder();
+		builder.build();
 	}
 }

@@ -24,7 +24,7 @@ public class Producer {
 	//发送消息方法
 	public void send() {
 		Message message = new Message();
-		message.setId("KFK_shuaideng_"+System.currentTimeMillis());
+		message.setId("KFK_shuaideng_" + System.currentTimeMillis());
 		message.setMsg(UUID.randomUUID().toString());
 		message.setSendTime(new Date());
 		kafkaTemplate.send("test", gson.toJson(message));
