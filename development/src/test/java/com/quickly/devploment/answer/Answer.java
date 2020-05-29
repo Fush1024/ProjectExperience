@@ -6,11 +6,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Stack;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * @ClassName Answer
@@ -417,6 +413,46 @@ public class Answer {
 	public void testInteger(){
 		Integer integer = Integer.getInteger("nettyrpc.default.thread.nums", 16);
 		System.out.println(integer);
+
+	}
+
+	@Test
+	public void testMath(){
+		double sqrt = Math.sqrt(0);
+
+		System.out.println(Math.sqrt(0));
+	}
+
+	@Test
+	public void testArray(){
+		int list[] = {1,3,4,5};
+		try {
+			System.out.println("Sum of given array is " + sum(list));
+		}
+		catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Array Index is Out Of Bounds");
+		}
+		catch (IndexOutOfBoundsException except) {
+			System.out.println("Index is Out Of Bounds");
+		}
+	}
+
+	public static int sum(int arr[]) {
+		int result = 0;
+		int i;
+		for (i = 0; i <= arr.length; i++) {
+			result = result + arr[i];
+		}
+		return result;
+	}
+
+	@Test
+	public void test(){
+		UserPojo userPojo = new UserPojo();
+		UserPojo userPojo1 ;
+		UserPojo userPojo2 = new UserPojo();
+		userPojo1 = userPojo2;
+
 
 	}
 }
