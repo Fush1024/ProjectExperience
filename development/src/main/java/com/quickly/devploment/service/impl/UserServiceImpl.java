@@ -29,11 +29,11 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public String getName(String name) {
-		synchronized (name) {
+//		synchronized (name) {
 			if (name == null) {
 				name = "default";
 			}
-		}
+//		}
 		return name +"___"+ System.currentTimeMillis();
 	}
 

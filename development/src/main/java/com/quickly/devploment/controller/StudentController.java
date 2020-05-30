@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -42,6 +43,12 @@ public class StudentController {
 		pageNum = pageNum == null ? 1 : pageNum;
 		pageSize = pageSize == null ? 500 : pageSize;
 		return studentService.geuAllStudentPojoByStream(pageNum,pageSize);
+	}
+
+	@RequestMapping("/test")
+	@ResponseBody
+	public String getAllStudentByStreamByTest(String name){
+		return "hello + : "+name+ new Date();
 	}
 
 }
