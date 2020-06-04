@@ -79,7 +79,7 @@ public class FlowThreadDemo {
 		FlowRule rule1 = new FlowRule();
 		rule1.setResource("methodA");
 		// set limit concurrent thread for 'methodA' to 20
-		rule1.setCount(20);
+		rule1.setCount(30);
 		rule1.setGrade(RuleConstant.FLOW_GRADE_THREAD);
 		rule1.setLimitApp("default");
 

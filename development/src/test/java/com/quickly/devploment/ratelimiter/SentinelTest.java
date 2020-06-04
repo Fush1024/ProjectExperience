@@ -26,7 +26,7 @@ public class SentinelTest {
 		FlowRule rule = new FlowRule();
 		rule.setResource("tutorial");
 		// QPS 不得超出 1
-		rule.setCount(3);
+		rule.setCount(10);
 		rule.setGrade(RuleConstant.FLOW_GRADE_QPS);
 		rule.setLimitApp("default");
 		rules.add(rule);
@@ -46,7 +46,7 @@ public class SentinelTest {
 				}
 			}
 			try {
-				Thread.sleep(100);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {}
 		}
 	}

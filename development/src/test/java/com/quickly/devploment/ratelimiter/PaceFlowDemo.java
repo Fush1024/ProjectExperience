@@ -92,7 +92,7 @@ public class PaceFlowDemo {
 	private static volatile CountDownLatch countDown;
 
 	private static final Integer requestQps = 100;
-	private static final Integer count = 10;
+	private static final Integer count = 20;
 	private static final AtomicInteger done = new AtomicInteger();
 	private static final AtomicInteger pass = new AtomicInteger();
 	private static final AtomicInteger block = new AtomicInteger();
