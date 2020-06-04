@@ -455,4 +455,35 @@ public class Answer {
 
 
 	}
+
+	@Test
+	public void testBigdec(){
+		MyMoney myMoney = new MyMoney();
+		myMoney.setBigDecimal(BigDecimal.ZERO.add(myMoney.getBigDecimal()));
+		System.out.println(myMoney.toString());
+	}
+
+	class MyMoney{
+		private BigDecimal bigDecimal;
+
+		public MyMoney() {
+		}
+
+		public BigDecimal getBigDecimal() {
+			return bigDecimal;
+		}
+
+		public void setBigDecimal(BigDecimal bigDecimal) {
+			this.bigDecimal = bigDecimal;
+		}
+
+		public MyMoney(BigDecimal bigDecimal) {
+			this.bigDecimal = bigDecimal;
+		}
+
+		@Override
+		public String toString() {
+			return "MyMoney{" + "bigDecimal=" + bigDecimal + '}';
+		}
+	}
 }

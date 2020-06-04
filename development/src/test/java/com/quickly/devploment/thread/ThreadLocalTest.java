@@ -14,6 +14,24 @@ public class ThreadLocalTest {
 		threadLocalInteger.set(10);
 		ThreadLocal<String> stringThreadLocal = new ThreadLocal<>();
 		stringThreadLocal.set("the Object is  StringThreadLocal");
+	}
 
+	private static int q = 10;
+
+	@Test
+	public void test(){
+		q1();
+
+	}
+
+	private void q1() {
+		q = 20;
+		System.out.println(q);
+		q2();
+	}
+
+	private void q2() {
+		q = 30;
+		System.out.println(q);
 	}
 }
