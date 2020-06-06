@@ -25,6 +25,7 @@ public class PriorityQueueTest {
 
 		/**
 		 * 使用最小 heap 以及 条件优先队列 实现第 K 个大的元素
+		 * 小顶堆
 		 *
 		 * @param n
 		 * @return
