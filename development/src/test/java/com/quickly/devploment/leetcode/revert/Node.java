@@ -88,6 +88,9 @@ public class Node {
 
 	/**
 	 * 龟兔赛跑寻找循环链表入口
+	 *  判断是否是循环链表
+	 * @Example 1 : set 去重
+	 * 			2 ： 龟兔赛跑
 	 *
 	 * @param head
 	 * @return
