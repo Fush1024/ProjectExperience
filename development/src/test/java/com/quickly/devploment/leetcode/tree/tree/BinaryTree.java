@@ -10,7 +10,9 @@ package com.quickly.devploment.leetcode.tree.tree;
 public class BinaryTree {
 	public static void main(String[] s) {
 
+		// 中序
 		int[] inorder = new int[]{28, 271, 0, 6, 561, 17, 3, 314, 2, 401, 641, 1, 257, 7, 278, 29};
+		// 前序
 		int[] preorder= new int[] {314, 6, 271, 28, 0, 561, 3, 17, 7, 2, 1, 401, 641, 257, 278, 29};
 		BTreeBuilder treeBuilder = new BTreeBuilder(inorder, preorder);
 		TreeNode n1 = treeBuilder.getNode1();

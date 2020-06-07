@@ -11,7 +11,6 @@ import org.junit.Test;
 public class BinarySearchTreeTest {
 
 
-
 	public boolean isValidBST(TreeNode root) {
 		return isValidBST_recursion(root, null, null);
 	}
@@ -28,7 +27,7 @@ public class BinarySearchTreeTest {
 	 * 校验某个树 是否是二叉树。
 	 * 1 通过 root 与 left 的 max 和 right 的 min 进行比较 ，进行递归
 	 * 2 通过中序遍历  ，有序性，验证是否是二叉树
-	 * */
+	 */
 	@Test
 	public void testCheckBinarySearchTree() {
 		TreeNode treeNode1 = new TreeNode(10);
@@ -43,5 +42,24 @@ public class BinarySearchTreeTest {
 		treeNode3.setLeft(treeNode2);
 		treeNode5.setRight(treeNode6);
 		System.out.println(isValidBST(treeNode1));
+		ArrayConvertToTree.preOrderTraveralWithStack(treeNode1);
 	}
+
+
+	@Test
+	public void testCreateTree() {
+		//		int[] inorder = new int[]{28, 271, 0, 6, 561, 17, 3, 314, 2, 401, 641, 1, 257, 7, 278, 29};
+		//		TreeNode treeNode = ArrayConvertToTree.sortedArrayToBST(inorder);
+		//		ArrayConvertToTree.inOrderTraveralWithStack(treeNode);
+		//		ArrayConvertToTree.preOrderTraveralWithStack(treeNode);
+		int[] array = {1, 2, 3, 4, 5, 6};
+		TreeNode treeNode = ArrayConvertToTree.sortedArrayToBST(array);
+		System.out.println(treeNode);
+		ArrayConvertToTree.preOrderTraveralWithStack(treeNode);
+		System.out.println();
+		ArrayConvertToTree.inOrderTraveralWithStack(treeNode);
+
+	}
+
+
 }
