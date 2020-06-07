@@ -3,6 +3,8 @@ package com.quickly.devploment.leetcode.tree.tree;
 
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * @Author lidengjin
  * @Date 2020/6/7 11:20 上午
@@ -55,10 +57,33 @@ public class BinarySearchTreeTest {
 		int[] array = {1, 2, 3, 4, 5, 6};
 		TreeNode treeNode = ArrayConvertToTree.sortedArrayToBST(array);
 		System.out.println(treeNode);
-		ArrayConvertToTree.preOrderTraveralWithStack(treeNode);
+		List<Integer> integers = ArrayConvertToTree.preOrderTraveralWithStack(treeNode);
 		System.out.println();
-		ArrayConvertToTree.inOrderTraveralWithStack(treeNode);
+		List<Integer> integers1 = ArrayConvertToTree.inOrderTraveralWithStack(treeNode);
+		for (int i = 0; i < integers.size(); i++) {
+			System.out.print(integers.get(i)+" - ");
+		}
+		System.out.println();
+		for (int i = 0; i < integers1.size(); i++) {
+			System.out.print(integers1.get(i)+" - ");
+		}
 
+	}
+
+	@Test
+	public void testTreeNodeParent(){
+		int[] array = {1, 2, 3, 4, 5, 6, 234,43,32,234};
+		TreeNode treeNode = ArrayConvertToTree.sortedArrayToBST(array);
+		List<Integer> inOrderList = ArrayConvertToTree.inOrderTraveralWithStack(treeNode);
+		List<Integer> preOrderList = ArrayConvertToTree.preOrderTraveralWithStack(treeNode);
+		BTreeBuilder.nodeValue1 = 4;
+		BTreeBuilder.nodeValue2 = 1;
+		BTreeBuilder treeBuilder = new BTreeBuilder(inOrderList.toArray(new Integer[inOrderList.size()]), preOrderList.toArray(new Integer[preOrderList.size()]));
+		TreeNode n1 = treeBuilder.getNode1();
+		TreeNode n2 = treeBuilder.getNode2();
+		LowestCommonAscestor lca = new LowestCommonAscestor(n1, n2);
+		TreeNode ascester = lca.getLCA();
+		System.out.println("The lowest common anscestor of node " + n1.val + "," + n2.val + " is " + ascester.val);
 	}
 
 

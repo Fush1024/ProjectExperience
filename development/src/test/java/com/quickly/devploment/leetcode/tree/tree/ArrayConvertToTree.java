@@ -1,5 +1,7 @@
 package com.quickly.devploment.leetcode.tree.tree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -35,13 +37,16 @@ public class ArrayConvertToTree {
 	 *
 	 * @param node
 	 */
-	public static void preOrderTraveralWithStack(TreeNode node) {
+	public static List<Integer> preOrderTraveralWithStack(TreeNode node) {
+
+		ArrayList<Integer> arrayList = new ArrayList<>();
 		Stack<TreeNode> stack = new Stack<TreeNode>();
 		TreeNode treeNode = node;
 		while (treeNode != null || !stack.isEmpty()) {
 			//迭代访问节点的左孩子，并入栈
 			while (treeNode != null) {
-				System.out.print(treeNode.val + " ");
+				arrayList.add(treeNode.val);
+//				System.out.print(treeNode.val + " ");
 				stack.push(treeNode);
 				treeNode = treeNode.left;
 			}
@@ -51,6 +56,7 @@ public class ArrayConvertToTree {
 				treeNode = treeNode.right;
 			}
 		}
+		return arrayList;
 	}
 
 	/**
@@ -58,9 +64,10 @@ public class ArrayConvertToTree {
 	 *
 	 * @param node
 	 */
-	public static void inOrderTraveralWithStack(TreeNode node) {
+	public static List<Integer> inOrderTraveralWithStack(TreeNode node) {
 		Stack<TreeNode> stack = new Stack<TreeNode>();
 		TreeNode treeNode = node;
+		ArrayList<Integer> arrayList = new ArrayList<>();
 		while (treeNode != null || !stack.isEmpty()) {
 			while (treeNode != null) {
 				stack.push(treeNode);
@@ -68,11 +75,12 @@ public class ArrayConvertToTree {
 			}
 			if (!stack.isEmpty()) {
 				treeNode = stack.pop();
-				System.out.print(treeNode.val + " ");
+				arrayList.add(treeNode.val);
+//				System.out.print(treeNode.val + " ");
 				treeNode = treeNode.right;
 			}
-
 		}
+		return arrayList;
 	}
 
 	/**
@@ -80,7 +88,9 @@ public class ArrayConvertToTree {
 	 *
 	 * @param node
 	 */
-	public static void postOrderTraveralWithStack(TreeNode node) {
+	public static List<Integer> postOrderTraveralWithStack(TreeNode node) {
+
+		ArrayList<Integer> arrayList = new ArrayList<>();
 		Stack<TreeNode> stack = new Stack<TreeNode>();
 		TreeNode treeNode = node;
 		TreeNode lastVisit = null;   //标记每次遍历最后一次访问的节点
@@ -99,7 +109,8 @@ public class ArrayConvertToTree {
 				 * 如果有右孩子，将当前节点继续入栈，treeNode指向它的右孩子,继续重复循环
 				 */
 				if (treeNode.right == null || treeNode.right == lastVisit) {
-					System.out.print(treeNode.val + " ");
+					arrayList.add(treeNode.val);
+//					System.out.print(treeNode.val + " ");
 					lastVisit = treeNode;
 					treeNode = null;
 				} else {
@@ -110,5 +121,6 @@ public class ArrayConvertToTree {
 			}
 
 		}
+		return arrayList;
 	}
 }

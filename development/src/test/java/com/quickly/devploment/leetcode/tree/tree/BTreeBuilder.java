@@ -17,11 +17,11 @@ public class BTreeBuilder {
 
 	public static Integer nodeValue1 = 401;
 
-	private static Integer nodeValue2 = 29;
+	public static Integer nodeValue2 = 29;
 
 
 
-	public BTreeBuilder(int[] inorder, int[] preorder) {
+	public BTreeBuilder(Integer[] inorder, Integer[] preorder) {
 		for (int i = 0; i < inorder.length; i++) {
 			nodeMap.put(inorder[i], i);
 		}
@@ -29,7 +29,7 @@ public class BTreeBuilder {
 		buildTree(preorder);
 	}
 
-	private void buildTree(int[] preorder) {
+	private void buildTree(Integer[] preorder) {
 		if (root == null) {
 			root = new TreeNode(preorder[0]);
 		}
