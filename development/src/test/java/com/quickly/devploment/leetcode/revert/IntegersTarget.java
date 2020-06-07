@@ -1,4 +1,4 @@
-package com.quickly.devploment.leetcode;
+package com.quickly.devploment.leetcode.revert;
 
 import org.junit.Test;
 
