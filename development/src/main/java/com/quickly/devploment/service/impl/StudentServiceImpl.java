@@ -52,7 +52,7 @@ public class StudentServiceImpl implements StudentService {
 		log.warn("JVM最大的内存量, {}" , run.maxMemory());
 		log.warn("JVM的空闲内容量, {}" , run.freeMemory());
 		log.warn("JVM的总内存, {}" , run.totalMemory());
-
+		System.out.println("This are water");
 		log.error("耗费时间 times = {} s",(System.currentTimeMillis() - startTime)/1000 );
 		return allStudentPojo;	}
 }
