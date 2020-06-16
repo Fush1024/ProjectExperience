@@ -37,7 +37,7 @@ public class VolatileDemo {
 			int sum = 0;
 			while (!flag) {
 				// MESI 协议 Modify exclusive Shard invalid
-				// 此处涉及到 io 操作 ，故案例不行
+				// 此处涉及到 io 操作 ，故案例不行 ，IO操作会 刷新总线 bus
 				//System.out.println(123);
 
 				// 此处未涉及到 io 操作，只是 cpu 密集型，故案例行得通 ，volatile 案例
