@@ -5,7 +5,6 @@ import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.quickly.devploment.mq.ritbbitmq.config.BeanMap.beanMap;
 import static com.quickly.devploment.mq.ritbbitmq.config.RibbitMQConfig.*;
@@ -34,23 +33,23 @@ public class RibbitMQFactory {
 		return;
 	}
 
-	private volatile AtomicInteger retryCount = new AtomicInteger(3);
+	private final static Integer retryCount = 3;
 
 
-	public Connection getConnection() throws IOException, TimeoutException {
-		try {
-			for (int i = 0; i < retryCount.get(); i++) {
+	public Connection getConnection() throws RuntimeException {
+		int retryC = retryCount;
+		for (int i = 0; i < retryC; i++) {
+			try {
 				return this.connectionFactory.newConnection();
-			}
-		} catch (IOException e) {
-			retryCount.decrementAndGet();
-			if (retryCount.get() <= 0) {
+			} catch (TimeoutException e) {
 				e.printStackTrace();
-				throw e;
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				System.out.println("retry " + i);
 			}
-			return this.getConnection();
 		}
-		return null;
+		throw new RuntimeException("connection was refuse ");
 	}
 
 
