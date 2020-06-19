@@ -3,6 +3,8 @@ package com.quickly.devploment.thread;
 import lombok.SneakyThrows;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 /**
  * @Author lidengjin
  * @Date 2020/6/16 9:24 上午
@@ -10,21 +12,21 @@ import org.junit.Test;
  */
 public class VolatileDemo {
 
-	public static Integer sumConut = 0;
 
 	public static void main(String[] args) throws InterruptedException {
-		Sync sync = new VolatileDemo().new Sync();
+		Sync sync = new Sync();
 		sync.start();
 		Thread.sleep(1000);
 		sync.setFlag(true);
 	}
 
-	class Sync extends Thread {
-
+	static class Sync extends Thread {
 
 		// MESI 协议 Modify exclusive Shard invalid
 		// 涉及到 JMM 内存模型 ，缓存一致性协议
 		public boolean flag = false;
+
+		public static Integer sumConut = 0;
 
 		public boolean isFlag() {
 			return flag;
@@ -39,9 +41,14 @@ public class VolatileDemo {
 		public void run() {
 			System.out.println("start ");
 			long sum = 0;
+			double value = 0.0d;
 			System.out.println("start " + System.currentTimeMillis());
-			int count = 0;
+			int count = 1000;
+			float floatValue = 0f;
+			byte byteValue = 0;
 			while (!flag) {
+
+//				testStaticMethod();
 				// MESI 协议 Modify exclusive Shard invalid
 				// 此处涉及到 io 操作 ，故案例不行 ，IO操作会 刷新总线 bus
 				//System.out.println(123);
@@ -52,23 +59,32 @@ public class VolatileDemo {
 				//				sum++;
 
 				// 和 Java 编译器有关，如果编译的时候是永真的，如果是静态变量，是要去刷新主存的,如果不是永真，那么不去主存。
-				if (sum++ == 1000000l) {
-//					sumConut ++ ;
-//					sum++;
-//					sum++;
-					System.out.println();
-//					sumConut ++ ;
-					while (!flag) {
-						System.out.println("sum ---------------" + sum + "count " + count);
-						count++;
-						////					}
-						////					sum = 0;
-					}
+				if (sum++ == 100l){
+					//					sumConut ++ ;
+					System.out.println(sum);
 
 				}
+//				count++;
+				//				if (sum++ == 1000000l) {
+				////					sum++;
+				////					sum++;
+				//					System.out.println();
+				////					sumConut ++ ;
+				//					while (!flag) {
+				//						System.out.println("sum ---------------" + sum + "count " + count);
+				//						count++;
+				//						////					}
+				//						////					sum = 0;
+				//					}
+				//
+				//				}
 				//			System.out.println(sum);
 			}
 			System.out.println("end " + System.currentTimeMillis());
+		}
+
+		 void testStaticMethod() {
+			new HashMap<>();
 		}
 
 		@Test

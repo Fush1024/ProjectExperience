@@ -62,4 +62,14 @@ public class TestGuava {
 		ImmutableSet.Builder<Object> builder = ImmutableSet.builder();
 		builder.build();
 	}
+
+	@Test
+	public void testShiftOperation(){
+		int i = -10;
+		int shift = 4;
+		int shiftResult = i << shift;
+		System.out.println(shiftResult);
+
+	}
+
 }
