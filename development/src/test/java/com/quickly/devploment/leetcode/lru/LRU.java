@@ -243,70 +243,70 @@ public class LRU {
 		lru.put(2, 2);
 		lru.put(5, 5);
 		lru.put(7, 7);
-//
-		System.out.println("count--"+lru.getCount());
+		//
+		System.out.println("count--" + lru.getCount());
 		for (Pair p : lru.getAll()) {
-			System.out.println("node---"+p);
+			System.out.println("node---" + p);
 		}
-//		System.out.println();
-//
-//		//get
-//		System.out.println("2 --"+lru.get(2));
-//		System.out.println("count --"+lru.getCount());
-//		for (Pair p : lru.getAll()) {
-//			System.out.println(p);
-//		}
-//		System.out.println();
-//
-//		//del
-//		System.out.println("del"+lru.del(5));
-//		System.out.println("del-count"+lru.getCount());
-//		for (Pair p : lru.getAll()) {
-//			System.out.println(p);
-//		}
-//		System.out.println();
-//
-//		//same key
-//		lru.put(7, 72);
-//		for (Pair p : lru.getAll()) {
-//			System.out.println(p);
-//		}
-//		System.out.println();
-//
-//		//hash collision
-//		lru.put(7 + lru.getTabSize(), 73);
-//		System.out.println(lru.getCount());
-//		for (Pair p : lru.getAll()) {
-//			System.out.println(p);
-//		}
-//		System.out.println();
-//
-//		//get bucket chain head
-//		lru.get(7);
-//		for (Pair p : lru.getAll()) {
-//			System.out.println(p);
-//		}
-//		System.out.println();
-//
-//		//del
-//		lru.del(23);
-//		System.out.println(lru.getCount());
-//		for (Pair p : lru.getAll()) {
-//			System.out.println(p);
-//		}
-//		System.out.println();
-//
-//		lru.put(8, 8);
-//		lru.put(9, 9);
-//		lru.put(10, 10);
-//		lru.put(11, 11);
-//		lru.put(12, 12);
-//		lru.put(13, 13); //del 1
-//		lru.put(14, 14); //del 2
-//		System.out.println(lru.getCount());
-//		for (Pair p : lru.getAll()) { //7~14
-//			System.out.println(p);
-//		}
-//		System.out.println();
+		//		System.out.println();
+		//
+		//		//get
+		//		System.out.println("2 --"+lru.get(2));
+		//		System.out.println("count --"+lru.getCount());
+		//		for (Pair p : lru.getAll()) {
+		//			System.out.println(p);
+		//		}
+		//		System.out.println();
+		//
+		//		//del
+		//		System.out.println("del"+lru.del(5));
+		//		System.out.println("del-count"+lru.getCount());
+		//		for (Pair p : lru.getAll()) {
+		//			System.out.println(p);
+		//		}
+		//		System.out.println();
+		//
+		//		//same key
+		//		lru.put(7, 72);
+		//		for (Pair p : lru.getAll()) {
+		//			System.out.println(p);
+		//		}
+		//		System.out.println();
+		//
+		//		//hash collision
+		//		lru.put(7 + lru.getTabSize(), 73);
+		//		System.out.println(lru.getCount());
+		//		for (Pair p : lru.getAll()) {
+		//			System.out.println(p);
+		//		}
+		//		System.out.println();
+		//
+		//		//get bucket chain head
+		//		lru.get(7);
+		//		for (Pair p : lru.getAll()) {
+		//			System.out.println(p);
+		//		}
+		//		System.out.println();
+		//
+		//		//del
+		//		lru.del(23);
+		//		System.out.println(lru.getCount());
+		//		for (Pair p : lru.getAll()) {
+		//			System.out.println(p);
+		//		}
+		//		System.out.println();
+		//
+		//		lru.put(8, 8);
+		//		lru.put(9, 9);
+		//		lru.put(10, 10);
+		//		lru.put(11, 11);
+		//		lru.put(12, 12);
+		//		lru.put(13, 13); //del 1
+		//		lru.put(14, 14); //del 2
+		//		System.out.println(lru.getCount());
+		//		for (Pair p : lru.getAll()) { //7~14
+		//			System.out.println(p);
+		//		}
+		//		System.out.println();
 	}
 }
