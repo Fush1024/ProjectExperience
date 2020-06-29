@@ -274,6 +274,16 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
+        <!-- oracle-jdbc -->
+        <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+<!--        <dependency>-->
+<!--            <groupId>com.oracle.database.jdbc</groupId>-->
+<!--            <artifactId>ojdbc10</artifactId>-->
+<!--            <version>19.7.0.0</version>-->
+<!--        </dependency>-->
+
+
+
 
     </dependencies>
 
