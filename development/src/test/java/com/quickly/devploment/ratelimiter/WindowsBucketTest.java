@@ -9,7 +9,7 @@ package com.quickly.devploment.ratelimiter;
 public class WindowsBucketTest {
 	public static void main(String[] args) throws InterruptedException {
 		int windowLength = 500;
-		int arrayLength = 2;
+		int arrayLength = 3;
 		calculate(windowLength,arrayLength);
 
 		Thread.sleep(100);
