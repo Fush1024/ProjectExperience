@@ -25,7 +25,7 @@ public class ExecuteWithLock {
 
 	public ExecuteWithLock(int semaphoreNum, int clientTotalSize) {
 		this.executorService = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(),
-				Runtime.getRuntime().availableProcessors() * 5, 300, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10000));
+				Runtime.getRuntime().availableProcessors() * 4, 300, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10000));
 		this.semaphore = new Semaphore(semaphoreNum);
 		this.countDownLatch = new CountDownLatch(clientTotalSize);
 		this.clientTotalSize = clientTotalSize;

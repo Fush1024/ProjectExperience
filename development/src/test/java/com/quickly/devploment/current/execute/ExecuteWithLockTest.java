@@ -21,15 +21,15 @@ public class ExecuteWithLockTest {
 
 	@Test
 	public void testExecute() {
-		ExecuteWithLock executeWithLock = new ExecuteWithLock(100, 5000);
+		ExecuteWithLock executeWithLock = new ExecuteWithLock(100, 1000000);
 		executeWithLock.execute(10, () -> {
 			return update();
 		});
-		System.out.print(map.size());
+		System.out.print(concurrentMap.size());
 	}
 
 	private Map<Integer, Integer> update() {
-		map.put(i.incrementAndGet(), i.get());
+		concurrentMap.put(i.incrementAndGet(), i.get());
 		return null;
 	}
 }
