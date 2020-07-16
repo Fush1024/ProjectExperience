@@ -43,7 +43,7 @@ public class AndCheck {
 		int cols = grid[0].length;
 
 		int size = rows * cols;
-		// 两个方向的方向向量（理解为向下和向右的坐标偏移）
+		// 两个方向的方向向量（理 解为向下和向右的坐标偏移）
 		int[][] directions = {{1, 0}, {0, 1}};
 		// +1 是认为虚拟的水域
 		UnionFind unionFind = new UnionFind(size + 1);

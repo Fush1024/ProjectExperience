@@ -21,27 +21,29 @@ import java.util.concurrent.TimeUnit;
 public class ProxyTest {
 
 	@Test
-	public void testJDkProxy(){
-		UserService serviceInterface=new UserServiceImpl();
-		JDKProxy jdkDynamicProxy=new JDKProxy();
+	public void testJDkProxy() {
+		UserService serviceInterface = new UserServiceImpl();
+		JDKProxy jdkDynamicProxy = new JDKProxy();
 		UserService proxy = (UserService) jdkDynamicProxy.getProxy(serviceInterface);
 		System.out.println(proxy.sayHello("haha"));
+		String json = "{\"name\": \"lidengjin\"}";
+		String format = "[0-9]*";
 	}
 
 	@Test
-	public void testProxyAdvance(){
+	public void testProxyAdvance() {
 
-		ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), Runtime.getRuntime().availableProcessors()*2, 60, TimeUnit.SECONDS,
-				new ArrayBlockingQueue<>(100));
+		ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(),
+				Runtime.getRuntime().availableProcessors() * 2, 60, TimeUnit.SECONDS, new ArrayBlockingQueue<>(100));
 
-//
-//		UserService serviceInterface = new UserServiceImpl();
-//		JDKProxyAdvance jDKDynamicProxyAdvanced = new JDKProxyAdvance();
-//		UserService proxy = (UserService) jDKDynamicProxyAdvanced.getProxy(serviceInterface, new TimerInteceptor());
-//		String s = proxy.sayHello("hello" + Thread.currentThread().getName());
-//		System.out.println(s);
+		//
+		//		UserService serviceInterface = new UserServiceImpl();
+		//		JDKProxyAdvance jDKDynamicProxyAdvanced = new JDKProxyAdvance();
+		//		UserService proxy = (UserService) jDKDynamicProxyAdvanced.getProxy(serviceInterface, new TimerInteceptor());
+		//		String s = proxy.sayHello("hello" + Thread.currentThread().getName());
+		//		System.out.println(s);
 
-		for (int i = 0; i < 10 ; i++) {
+		for (int i = 0; i < 10; i++) {
 			threadPoolExecutor.execute(new MyTask(i));
 		}
 
@@ -49,16 +51,16 @@ public class ProxyTest {
 
 	}
 
-	class MyTask implements Runnable{
+	class MyTask implements Runnable {
 
 		private int taskNum;
 
-		public MyTask(int num){
+		public MyTask(int num) {
 			this.taskNum = num;
 		}
 
 		@Override
-		public void run(){
+		public void run() {
 			UserService serviceInterface = new UserServiceImpl();
 			JDKProxyAdvance jDKDynamicProxyAdvanced = new JDKProxyAdvance();
 			UserService proxy = (UserService) jDKDynamicProxyAdvanced.getProxy(serviceInterface, new TimerInteceptor());

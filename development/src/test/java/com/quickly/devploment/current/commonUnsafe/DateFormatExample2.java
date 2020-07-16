@@ -40,7 +40,7 @@ public class DateFormatExample2 {
 	private static void update() {
 		try {
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
-			simpleDateFormat.parse("20180208");
+			log.info("date {} ,parse {} ", "20180208", simpleDateFormat.parse("20180208"));
 		} catch (Exception e) {
 			log.error("parse exception", e);
 		}
