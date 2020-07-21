@@ -1,0 +1,4 @@
+-- usergroovy1
+{"age":10,"name":"name1","userInfos":[{"classroom":"classroom1","password":"password1","username":"username1"},{"classroom":"classroom2","password":"password2","username":"username2"}]}
+-- usergroovy2
+{"age":12,"name2":"name1","userInfos":[{"classroom":"classroom2","password":"password2","username":"username1"},{"classroom":"classroom3","password":"password3","username":"username3"}]}
