@@ -12,7 +12,7 @@ public class StringEditDistance {
 
 	@Test
 	public void testEditDistance() {
-		int i = minEditDistance("cas", "acqaes");
+		int i = minEditDistance("cas", "sacaqaes");
 		System.out.println(i);
 	}
 
