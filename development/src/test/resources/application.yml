@@ -7,3 +7,5 @@ spring:
     username: root
     password: xiaoxingxing
     type: com.alibaba.druid.pool.DruidDataSource #连接池的类型
+app:
+  name: appname
