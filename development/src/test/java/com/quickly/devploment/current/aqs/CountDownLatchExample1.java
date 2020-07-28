@@ -138,4 +138,11 @@ public class CountDownLatchExample1 {
       2 AQS 对中断的支持，就是 调用 doAcquireInterruptibly 的时候，当调用线程获取锁失败，进入堵塞后，如果钟乳被中断，就会抛异常，而acquireQueue 只是用一个标识记录 线程被中断过。
       3 AQS 限时锁等待。
 	 */
+
+	/*
+	1 Condition
+		1 Condition 是对Object的wait 以及 notify 的增强，是个接口，实现在 AQS 的ConditionObject 中。
+		2 Condition 作为AQS 内部类，复用了AQS 节点，维护了一个 条件队列，Thead a ,b ，a 获取之后，wait ,会释放锁，然后进入条件队列，然后判断在不在等待队列，不在的话，堵塞线程，b 获取锁之后，执行完之后，single 条件队列的首节点a
+			a 从条件队列中移除，然后进入到等待队列，等待获取锁。 （https://segmentfault.com/a/1190000015807209）
+	 */
 }
