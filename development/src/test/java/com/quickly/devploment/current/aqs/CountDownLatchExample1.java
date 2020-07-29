@@ -187,4 +187,13 @@ public class CountDownLatchExample1 {
 		  唤醒线程的规则和AQS类似，都是首先唤醒队首结点。区别是StampedLock中，当唤醒的结点是读结点时，会唤醒该读结点的cowait链中的所有读结点（顺序和入栈顺序相反，也就是后进先出）
 
 	 */
+
+	/*
+	1 Unsafe 类 CAS 自旋，ABA 问题 ，AtomicReference 版本戳，解决ABA 问题。AtomicInteger Cas 自旋操作。里面使用了Unsafe .Atomic 数组，以原子方式 操作数组中的元素。底层 Unsafe 。
+	2 FieldUpdater 以线程安全的方式 去操作非线程安全对象的某个字段。实现并发安全性。
+	3 LongAdder 原子类，比AtomicLong 性能更好，代价是消耗更多的内存空间。 LongAdder 解决高并发下的 AtomicLong 的自旋瓶颈问题。
+		AtomicLong 内部有个 value ,高并发时，value 是一个热点，多个线程会竞争一个热点。
+		LongAdder 思路是分散热点，将value 放在数组中。不同的线程会命中到数组的不同槽中，各个线程支队自己槽中的那个值 进行cas 操作。热点就被分散开了，冲突的概率 减少。如果要获取真正的long 值，需要将槽中的变量累加返回。
+		精准度没有AtomicLong 高，一般适用于 写多读少的场景。  高并发的思想基本都是化整为零，然后在合并，让操作更加细粒度，最大效果提高并发执行效果。
+	 */
 }
