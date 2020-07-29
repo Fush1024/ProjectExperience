@@ -8,13 +8,13 @@ package com.quickly.devploment.safe;
 public class ReturnAndFinally {
 
 	public static void main(String[] args) {
-		System.out.println(testReturn());
+		System.out.println("result "+testReturn());
 	}
 
 	private static int testReturn() {
 		int i = 10;
 		try {
-			int s = 10/0;
+//			int s = 10/0;
 			return returnMethod(i);
 		} catch (Exception e) {
 			i = 20;
