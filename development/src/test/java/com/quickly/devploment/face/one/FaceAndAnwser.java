@@ -97,4 +97,13 @@ public interface FaceAndAnwser {
 				可重入锁毕竟是API这个级别的，后续的性能优化空间很小。
 				synchronized则是JVM直接支持的，JVM能够在运行时作出相应的优化措施：锁粗化、锁消除、锁自旋等等。这就使得synchronized能够随着JDK版本的升级而不改动代码的前提下获得性能上的提升。
 	 */
+
+	/*
+	6 Map 中哪些是有序 哪些是无序？
+		Map 的实现类有 HashMap、LinkedHashMap、TreeMap
+		HashMap是有无序的
+		LinkedHashMap 和 TreeMap 是有序的。LinkedHashMap 记录了添加数据的顺序；TreeMap 默认是升序
+			LinkedHashMap 底层存储结构是哈希表+链表，链表记录了添加数据的顺序
+			TreeMap 底层存储结构是二叉树，二叉树的中序遍历保证了数据的有序性，通过比较器 Comparator 实现。
+	 */
 }
