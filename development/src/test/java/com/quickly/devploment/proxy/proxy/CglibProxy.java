@@ -29,4 +29,10 @@ public class CglibProxy implements MethodInterceptor {
 		Cglib有两种可选方式，继承和引用。第一种是基于继承实现的动态代理，所以可以直接通过super调用target方法，但是这种方式在spring中是不支持的，因为这样的话，这个target对象就不能被spring所管理，所以cglib还是才用类似jdk的方式，通过持有target对象来达到拦截方法的效果。
 
 	 */
+
+	/*
+	1 泛型解决了什么问题？ https://www.cnblogs.com/huansky/p/8043149.html
+		解决了程序向下转型 容易造成的 ClassCastException ,泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口、泛型方法
+		泛型的好处是在编译的时候检查类型安全，并且所有的强制转换都是自动和隐式的，提高代码的重用率。
+	 */
 }
