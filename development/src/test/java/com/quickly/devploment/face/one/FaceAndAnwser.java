@@ -25,7 +25,7 @@ public interface FaceAndAnwser {
 			词法解析 判断是查询还是修改。
 			优化器，当是select 的时候，会分析怎么才会更快。选择合适的索引，选择走表还是走索引，优化 where 子句等等。
 			执行器 和存储引擎打交道。进行数据的交互。
-		2 update 是如何执行的？
+		2 update 是如何执行的？ （http://blog.itpub.net/31559358/viewspace-2221403/）
 			update 和 select 执行流程一致，只是最后的执行器 是找到这条数据，然后进行更新。另外更新过程 涉及到一个重要的日志模块，即 redo log 重做日志和 binlog 归档日志。
 			redo log ，innodb 记录了对数据文件的物理更改，保证总是日志先行。在数据持久化之前，保证 redo log 已经写到了磁盘。每一次更新 先 redo log ,再更新到 内存，适当的时候 更新到磁盘。
 			在对数据更改的时候，先把数据页从磁盘读到 buffer pool,然后在buffer pool 中进行修改。此时 buffer pool 和磁盘的数据 内容不一致，所以此时称buffer pool 的数据页 为脏数据。
