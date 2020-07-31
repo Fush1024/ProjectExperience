@@ -1,12 +1,14 @@
 package com.quickly.devploment.proxy;
 
 import com.quickly.devploment.proxy.inteceprtor.TimerInteceptor;
+import com.quickly.devploment.proxy.proxy.CglibProxy;
 import com.quickly.devploment.proxy.proxy.JDKProxy;
 import com.quickly.devploment.proxy.proxy.JDKProxyAdvance;
 import com.quickly.devploment.proxy.service.UserService;
 import com.quickly.devploment.proxy.service.impl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+import org.springframework.cglib.proxy.Enhancer;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -48,6 +50,20 @@ public class ProxyTest {
 		}
 
 		threadPoolExecutor.shutdown();
+
+	}
+
+	@Test
+	public void testCglib(){
+
+		CglibProxy cglibProxy = new CglibProxy();
+
+		Enhancer enhancer = new Enhancer();
+		enhancer.setSuperclass(UserServiceImpl.class);
+		enhancer.setCallback(cglibProxy);
+
+		UserService o = (UserService)enhancer.create();
+		System.out.println(o.sayHello("name"));
 
 	}
 
