@@ -492,7 +492,6 @@ public class Answer {
 		int amount = 100698;
 		BigDecimal bigDecimal = new BigDecimal(amount);
 		System.out.println(bigDecimal);
-		// commmit
 		BigDecimal divide = bigDecimal.divide(new BigDecimal(100), 2, BigDecimal.ROUND_HALF_UP);
 		System.out.println(divide);
 	}
