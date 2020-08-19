@@ -42,4 +42,6 @@ public class ArticleUser {
 	public void setVoteId(String voteId) {
 		this.voteId = voteId;
 	}
+
+	// commit -3
 }
