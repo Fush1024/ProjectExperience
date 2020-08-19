@@ -493,6 +493,7 @@ public class Answer {
 		BigDecimal bigDecimal = new BigDecimal(amount);
 		System.out.println(bigDecimal);
 		// commmit
+		// commit-shuaidneg2
 		BigDecimal divide = bigDecimal.divide(new BigDecimal(100), 2, BigDecimal.ROUND_HALF_UP);
 		System.out.println(divide);
 	}
