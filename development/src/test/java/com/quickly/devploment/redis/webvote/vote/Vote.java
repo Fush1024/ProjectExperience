@@ -88,7 +88,7 @@ public class Vote {
 	public static void main(String[] args) {
 		// 执行投票
 		ArticleUser articleUser = new ArticleUser();
-		articleUser.setId("10006");
+		articleUser.setId("10007");
 		articleUser.setName("投票人1");
 		articleUser.setVoteId("123456" + "2");
 		String result = DecouplingUtil.executeVote(() -> voteArticle(articleUser));
@@ -136,13 +136,34 @@ public class Vote {
 //		Map<String, String> stringStringMap = jedis.hgetAll(REDIS_SCORE_KEY + "1234561");
 //		log.info("result map {}", stringStringMap);
 		// 文章自增 分数
-		Set<String> zrevrange = jedis.zrevrange(REDIS_SCORE_KEY, 0, 2);
-		log.info("result {}", zrevrange);
-		zrevrange.stream().forEach(id->{
-			Map<String, String> stringStringMap = jedis.hgetAll(REDIS_SCORE_KEY + id);
-			log.info("result map {}", stringStringMap);
-		});
+//		Set<String> zrevrange = jedis.zrevrange(REDIS_SCORE_KEY, 0, 2);
+//		log.info("result {}", zrevrange);
+//		zrevrange.stream().forEach(id->{
+//			Map<String, String> stringStringMap = jedis.hgetAll(REDIS_SCORE_KEY + id);
+//			log.info("result map {}", stringStringMap);
+//		});
 		//		jedis.hincrBy("h10086113", "votes", 1);
+//		jedis.sadd("group" ,"114");
+//		jedis.srem("group","111");
+//		jedis.zadd("name_score",10,"zhangsan");
+//		jedis.zadd("name_score",20,"zhangsan1");
+//		jedis.zadd("name_score",30,"zhangsan2");
+//		jedis.zincrby("name_score",50,"zhangsan");
+
+		HashMap<String, Double> objectObjectHashMap = new HashMap<>();
+		HashMap<String, Double> objectObjectHashMap1 = new HashMap<>();
+		objectObjectHashMap.put("a",1d);
+		objectObjectHashMap.put("b",2d);
+		objectObjectHashMap.put("c",3d);
+		objectObjectHashMap.put("d",4d);
+		jedis.zadd("z_set",objectObjectHashMap);
+		objectObjectHashMap1.put("b",10d);
+		objectObjectHashMap1.put("c",20d);
+		objectObjectHashMap1.put("f",30d);
+		jedis.zadd("z_set_1",objectObjectHashMap1);
+		// 取交集。
+		Long zinterstore = jedis.zinterstore("z_set_3", "z,set","z_set_1");
+		System.out.println(zinterstore);
 		jedis.close();
 
 

@@ -486,4 +486,13 @@ public class Answer {
 			return "MyMoney{" + "bigDecimal=" + bigDecimal + '}';
 		}
 	}
+
+	@Test
+	public void testBigDecimal(){
+		int amount = 100698;
+		BigDecimal bigDecimal = new BigDecimal(amount);
+		System.out.println(bigDecimal);
+		BigDecimal divide = bigDecimal.divide(new BigDecimal(100), 2, BigDecimal.ROUND_HALF_UP);
+		System.out.println(divide);
+	}
 }
